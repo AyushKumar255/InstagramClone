@@ -1,7 +1,11 @@
-import path from "path"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
- 
+import path from "path";
+import { fileURLToPath } from "url";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+
+// Convert import.meta.url to __dirname equivalent
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -9,4 +13,4 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-})
+});
